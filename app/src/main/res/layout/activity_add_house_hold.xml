@@ -86,6 +86,14 @@
                 android:inputType="number" />
 
             <EditText
+                android:id="@+id/et_individual_name"
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:hint="IndividualName" />
+
+            <EditText
                 android:id="@+id/et_hhh_name"
                 android:layout_width="248dp"
                 android:layout_height="wrap_content"
@@ -158,13 +166,6 @@
                     android:text="@string/no" />
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/et_issue"
-                android:layout_width="248dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="196dp"
-                android:hint="Issue" />
 
             <RadioGroup
                 android:id="@+id/rg_birthcert"
@@ -479,6 +480,7 @@
                 android:id="@+id/moh513_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="visible"
                 android:orientation="vertical">
 
                 <RadioGroup
@@ -508,6 +510,11 @@
                         android:text="@string/no" />
                 </RadioGroup>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mother and child health booklet" />
+
                 <RadioGroup
                     android:id="@+id/rg_health_book"
                     android:layout_width="wrap_content"
@@ -515,11 +522,6 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="196dp"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mother and child health booklet" />
 
                     <RadioButton
                         android:id="@+id/rb_health_book_yes"
@@ -769,18 +771,19 @@
                         android:text="@string/no" />
                 </RadioGroup>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Children 6-23 months receiving 3 or more food groups three times a day:" />
+
                 <RadioGroup
                     android:id="@+id/rg_balanced_diet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginEnd="196dp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Children 6-23 months receiving 3 or more food groups three times a day:" />
 
                     <RadioButton
                         android:id="@+id/rb_balanced_diet_yes"
@@ -796,18 +799,19 @@
                         android:text="@string/no" />
                 </RadioGroup>
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Severely malnourished(MUAC Indicating red)" />
+
                 <RadioGroup
                     android:id="@+id/rg_Severely_malnourished"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginEnd="196dp"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Severely malnourished(MUAC Indicating red)" />
 
                     <RadioButton
                         android:id="@+id/rb_Severely_malnourished_yes"
@@ -823,18 +827,19 @@
                         android:text="@string/no" />
                 </RadioGroup>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moderate malnourished(MUAC Indicating yellow)" />
+
                 <RadioGroup
                     android:id="@+id/rg_moderate_malnourished"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginEnd="196dp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Moderate malnourished(MUAC Indicating yellow)" />
 
                     <RadioButton
                         android:id="@+id/rb_moderate_malnourished_yes"
