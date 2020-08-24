@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">MedIS</string>
+    <string name="register">Register</string>
+    <string name="logo">logo</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="already_have_an_account">Already Have an Account?</string>
+    <string name="reset_password">Reset password</string>
+    <string name="house_hold">House Hold</string>
+    <string name="my_households">My HouseHolds</string>
+    <string name="search">Search</string>
+    <string name="has_birth_certificate">Has birth certificate</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
+    <string name="moh513">MOH513</string>
+    <string name="submit">Submit</string>
+    <string-array name="chronic_illness">
+        <item>Diabetes</item>
+        <item>Cancer</item>
+        <item>Mental Illness</item>
+        <item>Hypertension</item>
+        <item>Chronic Respiratory</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="disability">
+        <item>Visual</item>
+        <item>Hearing</item>
+        <item>Speech</item>
+        <item>Physical</item>
+        <item>Mental</item>
+        <item>None</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="fp_method">
+        <item>Modern</item>
+        <item>Traditional</item>
+        <item>None</item>
+    </string-array>
+
+</resources>

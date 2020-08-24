@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "57141640785",
+    "firebase_url": "https://medis-3db96.firebaseio.com",
+    "project_id": "medis-3db96",
+    "storage_bucket": "medis-3db96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57141640785:android:425fce95462e2f2664c270",
+        "android_client_info": {
+          "package_name": "com.one46health.medis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57141640785-4171k56tlt1aegtq91rlm3n0a8lquoak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1i8VnpJmguEh4K1AbrcFXSahqFTTHME0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57141640785-4171k56tlt1aegtq91rlm3n0a8lquoak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
