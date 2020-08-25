@@ -1,5 +1,6 @@
 package com.one46health.medis.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var items: MainCardItem = arrayList!!.get(position)
+        startActivity(Intent(this, HouseHoldActivity::class.java))
         Toast.makeText(applicationContext, items.name, Toast.LENGTH_LONG).show()
     }
 }

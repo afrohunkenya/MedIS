@@ -68,9 +68,9 @@ class HouseHoldActivity : AppCompatActivity() {
                     position: Int,
                     model: DataHolder
                 ) {
-                    model.getHhhName()?.let { holder.setHhhName(it) };
-                    model.getIssue()?.let { holder.setStatus(it) };
-                    model.getDataDate()?.let { holder.setDataDate(it) };
+                    model.getHouseheadName()?.let { holder.setHouseHeadName(it) };
+                    model.getHouseHoldNumber()?.let { holder.setHouseholdNumber(it) };
+                    model.getDateData()?.let { holder.setDateofData(it) };
                 }
 
             }

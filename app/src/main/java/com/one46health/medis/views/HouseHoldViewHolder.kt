@@ -8,28 +8,28 @@ import com.one46health.medis.R
 
 class HouseHoldViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
     var mView: View? = null
-    private var mHhhName: TextView? = null
-    private var mStatus: TextView? = null
-    private var mDataDate: TextView? = null
+    private var mhouseHeadName: TextView? = null
+    private var mHouseholdNumber: TextView? = null
+    private var mDateofData: TextView? = null
 
     fun UsersViewHolder(itemView: View) {
         mView = itemView;
     }
 
-    fun setHhhName(hhhName: String) {
-        mHhhName = mView?.findViewById(R.id.name_hhh_column);
-        mHhhName?.text = hhhName;
+    fun setHouseHeadName(houseHeadName: String) {
+        mhouseHeadName =  mView?.findViewById(R.id.tv_name_column);
+        mhouseHeadName?.text = houseHeadName.toString();
     }
 
-    fun setStatus(status: String) {
-        mStatus = mView?.findViewById(R.id.status_column);
-        mStatus?.text = status;
+    fun setHouseholdNumber(householdNumber: String) {
+        mHouseholdNumber = mView?.findViewById(R.id.tv_status_column);
+        mHouseholdNumber?.text = householdNumber;
 
     }
 
-    fun setDataDate(dataDate: String) {
-        mDataDate = mView?.findViewById(R.id.date_column);
-        mDataDate?.text = dataDate;
+    fun setDateofData(dateofData: String) {
+         mDateofData = mView?.findViewById(R.id.tv_status_column);
+        mDateofData?.text = dateofData;
 
     }
 }
