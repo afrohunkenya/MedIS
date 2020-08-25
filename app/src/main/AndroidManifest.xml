@@ -13,7 +13,11 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".ui.HouseHoldActivity" />
+        <activity
+            android:name=".ui.HouseHoldActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".ui.ResetPassword" />
         <activity
             android:name=".ui.RegisterActivity"
