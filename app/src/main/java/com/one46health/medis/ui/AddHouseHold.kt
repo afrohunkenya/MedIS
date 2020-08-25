@@ -18,7 +18,7 @@ class AddHouseHold : AppCompatActivity() {
     private var IndividualCode: EditText? = null
     private var houseHeadName: EditText? = null
     private var houseHeadAge: EditText? = null
-    private var issue: EditText? = null
+    private var individualName: EditText? = null
     private var description: EditText? = null
     private var btnSubmit: Button? = null
     private var selectedChronicIllness: String? = null
@@ -66,6 +66,7 @@ class AddHouseHold : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
 
+    var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +79,7 @@ class AddHouseHold : AppCompatActivity() {
         householdNumber = findViewById(R.id.et_household_num)
         houseHeadName = findViewById(R.id.et_hhh_name)
         IndividualCode = findViewById(R.id.et_individual_code)
-        issue = findViewById(R.id.et_issue)
+        individualName = findViewById(R.id.et_individual_name)
         otherDisability = findViewById(R.id.et_other_disability)
         remarks = findViewById(R.id.et_remarks)
         chronicIllness = findViewById(R.id.sp_chronic_illnes)
@@ -98,13 +99,17 @@ class AddHouseHold : AppCompatActivity() {
         })
 
 
-        btnMoh513!!.setOnClickListener(View.OnClickListener {
-            moh513_ll.visibility == View.VISIBLE
+        btnMoh513!!.setOnClickListener(View.OnClickListener() {
 
+
+            counter++;
+            if (counter % 2 == 0) {
+                moh513_ll.visibility == View.VISIBLE;//show
+            } else {
+                moh513_ll.visibility == View.GONE;//hide
+            }
         })
-//        }else{
-//            moh513_ll.visibility == View.GONE
-//        }
+
 
 
         btnSubmit!!.setOnClickListener(View.OnClickListener {
@@ -197,7 +202,7 @@ class AddHouseHold : AppCompatActivity() {
             val house_headAge = houseHeadAge!!.text.toString().trim()
             val selected_gender = selectedGender!!.toString().trim()
             val orphan_choice = orphanChoice.toString().trim()
-            val issue_found = issue!!.text.toString().trim()
+            val individual_name = individualName!!.text.toString().trim()
             val birth_certChoice = birthCertChoice!!.toString().trim()
             val schooling_choice = schoolingChoice!!.toString().trim()
             val coughing_choice = coughingChoice!!.toString().trim()
@@ -212,7 +217,8 @@ class AddHouseHold : AppCompatActivity() {
 //            pushPatientData()
 
             val mRef = FirebaseDatabase.getInstance().getReference()
-                .child("MedIS").child("household data").child(household_number);
+                .child("MedIS").child("household data").child(household_number)
+                .child(Individual_code);
 //        val householdId=mRef.push().key
 
             //Writing Hashmap
@@ -226,7 +232,7 @@ class AddHouseHold : AppCompatActivity() {
             mhouseMap["houseHeadAge"] = house_headAge
             mhouseMap["selectedGender"] = selected_gender
             mhouseMap["orphanChoice"] = orphan_choice
-            mhouseMap["issue"] = issue_found
+            mhouseMap["individualName"] = individual_name
             mhouseMap["birthCertChoice"] = birth_certChoice
             mhouseMap["schoolingChoice"] = schooling_choice
             mhouseMap["coughing_choice"] = coughing_choice
@@ -246,10 +252,9 @@ class AddHouseHold : AppCompatActivity() {
                 ).show();
             };
 
-
             val mHouseRef = FirebaseDatabase.getInstance().getReference()
                 .child("MedIS").child("household data")
-                .child(household_number).child("moh513");
+                .child(household_number).child(Individual_code).child("moh513");
 
             if (rg_pregnant.checkedRadioButtonId != -1) {
                 if (rb_pregnant_yes.isChecked) {
