@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.one46health.medis.R
 
 
-class ResetPasswordActivity : AppCompatActivity() {
+class ResetPassword : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
 
@@ -28,9 +28,9 @@ class ResetPasswordActivity : AppCompatActivity() {
                 mAuth!!.sendPasswordResetEmail(email)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(this@ResetPasswordActivity, "Check email to reset your password!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@ResetPassword, "Check email to reset your password!", Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this@ResetPasswordActivity, "Fail to send reset password email!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@ResetPassword, "Fail to send reset password email!", Toast.LENGTH_SHORT).show()
                         }
                     }
             }
@@ -41,3 +41,5 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
     }
 }
+
+
