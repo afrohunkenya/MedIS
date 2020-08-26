@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.one46health.medis.R
+import com.one46health.medis.ui.household.HouseHoldActivity
 import kotlinx.android.synthetic.main.activity_add_house_hold.*
 
 class AddHouseHold : AppCompatActivity() {

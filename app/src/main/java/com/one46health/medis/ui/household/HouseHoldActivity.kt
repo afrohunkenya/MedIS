@@ -1,4 +1,4 @@
-package com.one46health.medis.ui
+package com.one46health.medis.ui.household
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.one46health.medis.R
 import com.one46health.medis.model.DataHolder
+import com.one46health.medis.ui.AddHouseHold
 import com.one46health.medis.views.HouseHoldViewHolder
 import kotlinx.android.synthetic.main.activity_house_hold.*
 import kotlinx.android.synthetic.main.house_hold_bar.*
