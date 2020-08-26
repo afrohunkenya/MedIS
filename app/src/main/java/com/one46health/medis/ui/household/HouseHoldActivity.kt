@@ -1,11 +1,14 @@
-package com.one46health.medis.ui
+package com.one46health.medis.ui.household
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -14,6 +17,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.one46health.medis.R
 import com.one46health.medis.model.DataHolder
+import com.one46health.medis.ui.AddHouseHold
 import com.one46health.medis.views.HouseHoldViewHolder
 import kotlinx.android.synthetic.main.activity_house_hold.*
 import kotlinx.android.synthetic.main.house_hold_bar.*
@@ -21,11 +25,20 @@ import kotlinx.android.synthetic.main.house_hold_bar.*
 
 class HouseHoldActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
+    private val viewModel: HouseHoldViewModel by viewModels()
+    private lateinit var sharedPreferences: SharedPreferences
     private var btnAdd: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_house_hold)
+        sharedPreferences = this.getSharedPreferences("medis-shared-prefs", Context.MODE_PRIVATE)
+
+        val reference = FirebaseDatabase.getInstance().reference
+            .child("MedIS").child("household data").child("household_number")
+            .child("Individual_code")
+        viewModel.getHouseHoldData(reference)
+
 
 //        btnAdd!! = findViewById<TextView>(R.id.add_data)
 
@@ -37,9 +50,6 @@ class HouseHoldActivity : AppCompatActivity() {
         data_recycler_view.layoutManager = linearLayoutManager
 
 
-        val mRef = FirebaseDatabase.getInstance().reference
-            .child("MedIS").child("household data").child("household_number")
-            .child("Individual_code");
         val query: DatabaseReference =
             FirebaseDatabase.getInstance().reference.child("MedIS").child(
                 "household data"

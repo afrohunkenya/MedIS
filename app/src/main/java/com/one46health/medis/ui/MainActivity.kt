@@ -1,9 +1,11 @@
 package com.one46health.medis.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.one46health.medis.R
+import com.one46health.medis.ui.household.HouseHoldActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        house_hold.setOnClickListener { Toast.makeText(this,"House Hold", Toast.LENGTH_SHORT).show() }
+        house_hold.setOnClickListener {
+            startActivity(Intent(this, HouseHoldActivity::class.java))
+        }
         referral.setOnClickListener { Toast.makeText(this,"Referral", Toast.LENGTH_SHORT).show() }
         reports.setOnClickListener { Toast.makeText(this,"Reports", Toast.LENGTH_SHORT).show() }
         e_learning.setOnClickListener { Toast.makeText(this,"E-learning", Toast.LENGTH_SHORT).show() }

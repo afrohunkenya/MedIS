@@ -10,114 +10,57 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.one46health.medis.R
+import com.one46health.medis.ui.login.LoginActivity
 import com.one46health.medis.views.Users
+import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
-    private var userName: EditText? = null
-    private var userEmail: EditText? = null
-    private var userLocation: EditText? = null
-    private var userPhoneNumber: EditText? = null
-    private var userPassword: EditText? = null
-    private var btnSignIn: TextView? = null
-    private var btnSignUp: Button? = null
-    private var progressBar: ProgressBar? = null
 
-    private var auth: FirebaseAuth? = null
-
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-//        add my code
-        auth = FirebaseAuth.getInstance()
-
-        btnSignIn = findViewById(R.id.tv_signin)
-        btnSignUp = findViewById(R.id.BtnSignUp)
-
-        userName = findViewById(R.id.ETUsername)
-        userEmail = findViewById(R.id.ETUserEmail)
-        userLocation = findViewById(R.id.ETLocation)
-        userPhoneNumber = findViewById(R.id.ETphone_number)
-        userPassword = findViewById(R.id.ETPassword)
-
-
-        btnSignIn!!.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+        tv_signin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        })
-        btnSignUp!!.setOnClickListener(View.OnClickListener {
-            val username = userName!!.text.toString().trim()
-            val userEmail = userEmail!!.text.toString().trim()
-            val location = userLocation!!.text.toString().trim()
-            val phonenumber = userPhoneNumber!!.text.toString().trim()
-            val userpassword = userPassword!!.text.toString().trim()
+        }
+        BtnSignUp.setOnClickListener{
+            val username = ETUsername.text.toString().trim()
+            val userEmail = ETUserEmail.text.toString().trim()
+            val location = ETLocation.text.toString().trim()
+            val number = ETphone_number.text.toString().trim()
+            val password = ETPassword.text.toString().trim()
 
-            if (TextUtils.isEmpty(username) || TextUtils.isEmpty(userEmail) || TextUtils.isEmpty(
-                    location
-                ) || TextUtils.isEmpty(phonenumber) || TextUtils.isEmpty(userpassword)
-            ) {
-                Toast.makeText(applicationContext, "Enter your email Address!!", Toast.LENGTH_LONG)
-                    .show()
-                return@OnClickListener
+            if (username.isEmpty() || userEmail.isEmpty()|| location.isEmpty() || number.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Enter your email Address!!", Toast.LENGTH_LONG).show()
             }
-            if (userpassword.length < 6) {
-                Toast.makeText(
-                    applicationContext,
-                    "Password too short, enter mimimum 6 charcters",
-                    Toast.LENGTH_LONG
-                ).show()
-                return@OnClickListener
+            if (password.length < 6) {
+                Toast.makeText(this, "Password too short, enter minimum 6 characters", Toast.LENGTH_LONG).show()
             }
-//            progressBar!!.visibility = View.VISIBLE
-
-//                ---store data----
-            val mRef = FirebaseDatabase.getInstance().getReference().child("MedIS").child("users");
+            val mRef = FirebaseDatabase.getInstance().reference.child("MedIS").child("users");
             val userId = mRef.push().key
-
-            val user = Users(userId, username, userEmail, location, phonenumber)
-
+            val user = Users(userId, username, userEmail, location, number)
             if (userId != null) {
-                mRef.child(userId).setValue(user).addOnCompleteListener(OnCompleteListener {
-                    Toast.makeText(
-                        applicationContext,
-                        "user data saved successfully",
-                        Toast.LENGTH_SHORT
-                    ).show();
+                mRef.child(userId).setValue(user).addOnCompleteListener {
+                    Toast.makeText(this, "user data saved successfully", Toast.LENGTH_SHORT).show();
 
-                })
+                }
             }
 
-            //create user
-            auth!!.createUserWithEmailAndPassword(userEmail, userpassword)
-                .addOnCompleteListener(this, OnCompleteListener { task ->
-                    Toast.makeText(
-                        this@RegisterActivity,
-                        "createUserWithEmail:onComplete" + task.isSuccessful,
-                        Toast.LENGTH_SHORT
-                    ).show()
-//                    progressBar!!.visibility = View.VISIBLE
-
+            auth.createUserWithEmailAndPassword(userEmail, password)
+                .addOnCompleteListener(this) { task ->
                     if (!task.isSuccessful) {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "User Not created",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@OnCompleteListener
+                        Toast.makeText(this, "User Not created", Toast.LENGTH_SHORT).show()
                     } else {
-                        startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+                        Toast.makeText(this, "createUserWithEmail:onComplete" + task.isSuccessful, Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }
 
+                }
 
-                })
-
-        })
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        progressBar!!.visibility = View.GONE
+        }
     }
 }
