@@ -132,8 +132,8 @@
                 android:padding="10dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:layout_gravity="center"
                     android:src="@drawable/elearning_img" />
 
