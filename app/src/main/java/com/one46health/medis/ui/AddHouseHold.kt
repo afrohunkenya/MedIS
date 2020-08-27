@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.one46health.medis.R
 import com.one46health.medis.ui.household.HouseHoldActivity
@@ -66,6 +67,7 @@ class AddHouseHold : AppCompatActivity() {
     private var remarks: EditText? = null
 
     private var mAuth: FirebaseAuth? = null
+    private var mCurrentUser: DatabaseReference? = null
 
     var counter = 0
 
@@ -93,7 +95,14 @@ class AddHouseHold : AppCompatActivity() {
         btnMoh513 = findViewById(R.id.btn_moh513)
 
         mAuth = FirebaseAuth.getInstance();
-
+        if (mAuth!!.currentUser != null) {
+            mCurrentUser = FirebaseDatabase.getInstance()
+                .reference.child("MedIS").child("users")
+                .child(
+                    mAuth!!.currentUser!!
+                        .uid
+                )
+        }
         returnImg!!.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this@AddHouseHold, HouseHoldActivity::class.java))
             finish()
@@ -101,7 +110,6 @@ class AddHouseHold : AppCompatActivity() {
 
 
         btnMoh513!!.setOnClickListener(View.OnClickListener() {
-
 
             counter++;
             if (counter % 2 == 0) {
@@ -214,6 +222,7 @@ class AddHouseHold : AppCompatActivity() {
             val fuctional_latrines = fuctionalLatrines!!.toString().trim()
             val handwashing_facility = handwashingFacility!!.toString().trim()
             val disposal_facility = disposalFacility!!.toString().trim()
+            val currentUser = mCurrentUser!!.toString().trim()
 
 //            pushPatientData()
 
@@ -244,6 +253,8 @@ class AddHouseHold : AppCompatActivity() {
             mhouseMap["fuctionalLatrines"] = fuctional_latrines
             mhouseMap["handwashingFacility"] = handwashing_facility
             mhouseMap["disposalFacility"] = disposal_facility
+            mhouseMap["chv ID"] = currentUser
+
 
             mRef.updateChildren(mhouseMap).addOnCompleteListener {
                 Toast.makeText(
@@ -254,8 +265,7 @@ class AddHouseHold : AppCompatActivity() {
             };
 
             val mHouseRef = FirebaseDatabase.getInstance().getReference()
-                .child("MedIS").child("household data")
-                .child(household_number).child(Individual_code).child("moh513");
+                .child("MedIS").child("moh513").child(Individual_code).child(individual_name);
 
             if (rg_pregnant.checkedRadioButtonId != -1) {
                 if (rb_pregnant_yes.isChecked) {
@@ -388,6 +398,12 @@ class AddHouseHold : AppCompatActivity() {
             moh513Map["severelyMalnourished"] = mseverelyMalnourished
             moh513Map["moderateMalnoushed"] = mmoderateMalnoushed
             moh513Map["llinUse"] = mllinUse
+            moh513Map["chv ID"] = currentUser
+            moh513Map["householdNumber"] = household_number
+            moh513Map["IndividualCode"] = Individual_code
+            moh513Map["houseHeadName"] = house_headName
+            moh513Map["individualName"] = individual_name
+
 
             mHouseRef.updateChildren(moh513Map).addOnCompleteListener {
                 Toast.makeText(
