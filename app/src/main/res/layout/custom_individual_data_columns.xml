@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="#d7f4f5">
+
+    <TextView
+        android:id="@+id/name_hhh_column"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:padding="10dp"
+        android:text="Name"
+        android:textColor="#4a4cd9"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/relation_column"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/name_hhh_column"
+        android:padding="10dp"
+        android:text="Relation"
+        android:textColor="#4a4cd9"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/individual_status_column"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toEndOf="@+id/relation_column"
+        android:padding="10dp"
+        android:text="Status"
+        android:textColor="#4a4cd9"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/remove"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/individual_status_column"
+        android:padding="10dp"
+        android:text="Remove"
+        android:textColor="#4a4cd9"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
