@@ -1,7 +1,8 @@
 package com.one46health.medis.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.one46health.medis.R
 
 class ReferralActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

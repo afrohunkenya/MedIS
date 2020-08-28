@@ -1,12 +1,8 @@
 package com.one46health.medis.ui
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.one46health.medis.R
@@ -69,6 +65,8 @@ class IndividualHouseData : AppCompatActivity() {
                     .show()
             }
         })
+
+        
     }
 
 

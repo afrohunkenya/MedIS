@@ -264,8 +264,8 @@ class AddHouseHold : AppCompatActivity() {
                 ).show();
             };
 
-            val mHouseRef = FirebaseDatabase.getInstance().getReference()
-                .child("MedIS").child("moh513").child(Individual_code).child(individual_name);
+            val mHouseRef = FirebaseDatabase.getInstance().reference
+                .child("MedIS").child("moh513").child(household_number).child(Individual_code);
 
             if (rg_pregnant.checkedRadioButtonId != -1) {
                 if (rb_pregnant_yes.isChecked) {

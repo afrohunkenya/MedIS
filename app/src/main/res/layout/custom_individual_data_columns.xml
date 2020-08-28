@@ -50,8 +50,10 @@
         android:padding="10dp"
         android:text="Remove"
         android:textColor="#4a4cd9"
+        android:clickable="true"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="true" />
 
 
 </RelativeLayout>

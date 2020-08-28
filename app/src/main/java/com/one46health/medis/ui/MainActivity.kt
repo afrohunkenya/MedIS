@@ -2,11 +2,13 @@ package com.one46health.medis.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.one46health.medis.R
 import com.one46health.medis.ui.household.HouseHoldActivity
+import com.one46health.medis.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.custom_app_bar.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         }
         events.setOnClickListener {
             startActivity(Intent(this, EventsActivity::class.java))
+        }
+
+        logout!!.setOnClickListener{
+            FirebaseAuth.getInstance().signOut();
+            val signin_Intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(signin_Intent)
+            finish()
         }
     }
 
