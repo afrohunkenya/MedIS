@@ -1,22 +1,47 @@
 package com.one46health.medis.ui
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.one46health.medis.R
-import kotlinx.android.synthetic.main.activity_main.*
 
+import com.one46health.medis.ui.household.HouseHoldActivity
+import com.one46health.medis.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.custom_app_bar.*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        house_hold.setOnClickListener { Toast.makeText(this,"House Hold", Toast.LENGTH_SHORT).show() }
-        referral.setOnClickListener { Toast.makeText(this,"Referral", Toast.LENGTH_SHORT).show() }
-        reports.setOnClickListener { Toast.makeText(this,"Reports", Toast.LENGTH_SHORT).show() }
-        e_learning.setOnClickListener { Toast.makeText(this,"E-learning", Toast.LENGTH_SHORT).show() }
-        events.setOnClickListener { Toast.makeText(this,"Events", Toast.LENGTH_SHORT).show() }
+        house_hold.setOnClickListener {
+            startActivity(Intent(this, HouseHoldActivity::class.java))
+        }
+        referral.setOnClickListener {
+            startActivity(Intent(this, ReferralActivity::class.java))
+        }
+        reports.setOnClickListener {
+            startActivity(Intent(this, ReportsActivity::class.java))
+        }
+        e_learning.setOnClickListener {
+            startActivity(Intent(this, ReferralActivity::class.java))
+        }
+        events.setOnClickListener {
+            startActivity(Intent(this, EventsActivity::class.java))
+        }
+
+        logout!!.setOnClickListener{
+            FirebaseAuth.getInstance().signOut();
+            val signin_Intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(signin_Intent)
+            finish()
+        }
     }
 
 }
+    }
+
+}
+

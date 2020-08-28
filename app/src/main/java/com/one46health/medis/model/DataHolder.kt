@@ -1,47 +1,47 @@
 package com.one46health.medis.model
 
 //1
-class DataHolder {
+public class DataHolder {
     //2
-    private var hhhName: String? = null
-    private var issue: String? = null
-    private var dataDate: String? = null
+    public var houseHeadName: String? = null
+    public var householdNumber: String? = null
+    public var dateofData: String? = null
 
 
-    fun DataHolder() {
+    public fun DataHolder() {
 
     }
 
 
-    fun DataHolder(hhhName: String, dataDate: String, issue: String?) {
-        this.hhhName = hhhName
-        this.issue = issue
-        this.dataDate = dataDate
+    public fun DataHolder(houseHeadName: String, dateofData: String, householdNumber: String?) {
+        this.houseHeadName = houseHeadName
+        this.householdNumber = householdNumber
+        this.dateofData = dateofData
     }
 
 
-    fun getHhhName(): String? {
-        return hhhName
+    fun getHouseheadName(): String? {
+        return houseHeadName
     }
 
-    fun getIssue(): String? {
-        return issue
+    public fun getHouseHoldNumber(): String? {
+        return householdNumber
+    }
+    fun getDateData(): String? {
+        return dateofData
     }
 
-    fun getDataDate(): String? {
-        return dataDate
+
+    fun setHouseHeadName() {
+        this.houseHeadName = houseHeadName
     }
 
-    fun setHhhName() {
-        this.hhhName = hhhName
+    fun setHouseholdNumber() {
+        this.householdNumber = householdNumber
     }
 
-    fun setIssue() {
-        this.issue = issue
-    }
-
-    fun setDataDate() {
-        this.dataDate = dataDate
+    fun setDateofData() {
+        this.dateofData = dateofData
     }
 
 }

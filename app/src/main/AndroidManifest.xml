@@ -8,22 +8,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+        <activity android:name=".ui.ELearningActivity"></activity>
+        <activity android:name=".ui.ReportsActivity" />
+        <activity android:name=".ui.EventsActivity" />
+        <activity android:name=".ui.ReferralActivity" />
+        <activity
+            android:name=".ui.IndividualHouseData"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.AddHouseHold"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.HouseHoldActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".ui.ResetPassword" />
+            android:name=".ui.household.HouseHoldActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.ResetPassword"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.RegisterActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.SplashActivity"
