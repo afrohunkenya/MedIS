@@ -17,10 +17,18 @@ class MainActivity : AppCompatActivity() {
         house_hold.setOnClickListener {
             startActivity(Intent(this, HouseHoldActivity::class.java))
         }
-        referral.setOnClickListener { Toast.makeText(this,"Referral", Toast.LENGTH_SHORT).show() }
-        reports.setOnClickListener { Toast.makeText(this,"Reports", Toast.LENGTH_SHORT).show() }
-        e_learning.setOnClickListener { Toast.makeText(this,"E-learning", Toast.LENGTH_SHORT).show() }
-        events.setOnClickListener { Toast.makeText(this,"Events", Toast.LENGTH_SHORT).show() }
+        referral.setOnClickListener {
+            startActivity(Intent(this, ReferralActivity::class.java))
+        }
+        reports.setOnClickListener {
+            startActivity(Intent(this, ReportsActivity::class.java))
+        }
+        e_learning.setOnClickListener {
+            startActivity(Intent(this, ReferralActivity::class.java))
+        }
+        events.setOnClickListener {
+            startActivity(Intent(this, EventsActivity::class.java))
+        }
     }
 
 }
