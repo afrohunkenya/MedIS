@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ui.AddIndividualActivity">
+
+<include
+    android:id="@+id/toolbar"
+    layout="@layout/add_house_bar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="188dp"
+    android:layout_height="22dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="52dp"
+    android:text="Enter the household details below:"
+    android:textColor="@color/black"
+    app:layout_constraintHorizontal_bias="0.328"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="70dp"
+    android:paddingBottom="10dp"
+    app:layout_constraintTop_toBottomOf="@+id/textView4"
+    tools:layout_editor_absoluteX="-188dp">
+
+
+    <LinearLayout
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <EditText
+            android:id="@+id/et_village_name"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Village Name" />
+
+        <EditText
+            android:id="@+id/et_household_num"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Head of House ID"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_date"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="DD/MM/YYYY"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/et_individual_code"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Individual Code"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_individual_name"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="IndividualName" />
+
+        <EditText
+            android:id="@+id/et_hhh_name"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Name of HHH" />
+
+
+        <EditText
+            android:id="@+id/et_age"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Age"
+            android:inputType="number" />
+
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Gender"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender" />
+
+            <RadioButton
+                android:id="@+id/male_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="male" />
+
+            <RadioButton
+                android:id="@+id/female_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="females" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relationship to HHH" />
+        <RadioGroup
+            android:id="@+id/rg_relationship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="relationShip"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_hhh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="HHH" />
+
+            <RadioButton
+                android:id="@+id/rb_partner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="partner" />
+
+            <RadioButton
+                android:id="@+id/rb_son"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="son" />
+            <RadioButton
+                android:id="@+id/rb_daughter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daughter" />
+            <RadioButton
+                android:id="@+id/rb_gardian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gardian" />
+        </RadioGroup>
+
+
+
+        <RadioGroup
+            android:id="@+id/rg_orphanage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orphan" />
+
+            <RadioButton
+                android:id="@+id/rb_orphan_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_orphan_not"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/no" />
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/rg_birthcert"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/has_birth_certificate" />
+
+            <RadioButton
+                android:id="@+id/Has_birthcert_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/Has_birthcert_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_schooling"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In School" />
+
+            <RadioButton
+                android:id="@+id/rb_schooling_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_schooling_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Known Chronic Illness" />
+
+            <Spinner
+                android:id="@+id/sp_chronic_illnes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/chronic_illness" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_cough"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cough(2 weeks and above)" />
+
+            <RadioButton
+                android:id="@+id/rb_cough_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_cough_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_hiv_status"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HIV Status" />
+
+            <RadioButton
+                android:id="@+id/rb_hiv_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Positive" />
+
+            <RadioButton
+                android:id="@+id/rb_hiv_no"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:text="Negative" />
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/rg_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+
+            <RadioButton
+                android:id="@+id/rb_follow_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follow up" />
+
+            <RadioButton
+                android:id="@+id/rb_closed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Closed" />
+
+            <RadioButton
+                android:id="@+id/rb_refer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Refer" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disability" />
+
+            <Spinner
+                android:id="@+id/sp_disability"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/disability" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_other_disability"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Other Disability" />
+
+        <RadioGroup
+            android:id="@+id/rg_water_access"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Access to safe Water" />
+
+            <RadioButton
+                android:id="@+id/rb_water_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_water_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_treated_water"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use of treated water" />
+
+            <RadioButton
+                android:id="@+id/rb_water_treated_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_water_treated_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_laterines"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Functional latrines use" />
+
+            <RadioButton
+                android:id="@+id/rb_latrines_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_latrines_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_handwashing"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hand washing Facility" />
+
+            <RadioButton
+                android:id="@+id/rb_handwashing_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_handwashing_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_litter_disposal"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refuse disposal facility" />
+
+            <RadioButton
+                android:id="@+id/rb_refuse_disposal_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/rb_refuse_disposal_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/et_remarks"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="196dp"
+            android:hint="Remarks" />
+
+        <Button
+            android:id="@+id/btn_moh513"
+            android:layout_width="118dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/mohbtn_round_corner_layout"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/moh513"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/et_remarks" />
+
+
+        <LinearLayout
+            android:id="@+id/moh513_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rg_pregnant"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pregnancy" />
+
+                <RadioButton
+                    android:id="@+id/rb_pregnant_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_pregnant_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mother and child health booklet" />
+
+            <RadioGroup
+                android:id="@+id/rg_health_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_health_book_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_health_book_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_anc_4times"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ANC (4+times)" />
+
+                <RadioButton
+                    android:id="@+id/rb_anc_4times_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_anc_4times_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_birth_attendant"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skilled birth attendant" />
+
+                <RadioButton
+                    android:id="@+id/rb_birth_attendant_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_birth_attendant_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+            <RadioGroup
+                android:id="@+id/rg_breast_feeding"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exclusive breastFeeding" />
+
+                <RadioButton
+                    android:id="@+id/rb_breast_feeding_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_breast_feeding_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Using FP methods" />
+
+                <Spinner
+                    android:id="@+id/sp_fp_methods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/fp_method" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/rg_penta1"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penta 1 Given" />
+
+                <RadioButton
+                    android:id="@+id/rb__penta1_given_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb__penta1_given_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_penta2"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penta 2 Given" />
+
+                <RadioButton
+                    android:id="@+id/rb__penta2_given_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb__penta2_given_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_Measles"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Measles givens" />
+
+                <RadioButton
+                    android:id="@+id/rb_measles_given_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_measles_given_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_immunised"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fully immunised" />
+
+                <RadioButton
+                    android:id="@+id/rb_immunised_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_immunised_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/gr_vitamin_a"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vitamin A Given" />
+
+                <RadioButton
+                    android:id="@+id/rb_vitamin_a_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_vitamin_a_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Children 6-23 months receiving 3 or more food groups three times a day:" />
+
+            <RadioGroup
+                android:id="@+id/rg_balanced_diet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/rb_balanced_diet_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_balanced_diet_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Severely malnourished(MUAC Indicating red)" />
+
+            <RadioGroup
+                android:id="@+id/rg_Severely_malnourished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_Severely_malnourished_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_severely_malnourished_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moderate malnourished(MUAC Indicating yellow)" />
+
+            <RadioGroup
+                android:id="@+id/rg_moderate_malnourished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/rb_moderate_malnourished_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_moderate_malnourished_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_llin_use"
+                android:layout_width="283dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LLIN use" />
+
+                <RadioButton
+                    android:id="@+id/rb_lllin_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/rb_lllin_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="122dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/login_round_corner_layout"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_moh513" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

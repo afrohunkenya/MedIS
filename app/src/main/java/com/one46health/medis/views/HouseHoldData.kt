@@ -10,7 +10,7 @@ class HouseHoldData(
     val houseHeadAge: String,
     val selectedGender: String?,
     val orphanChoice: String,
-    val issue: String,
+    val IndividualName: String,
     val birthCertChoice: String,
     val schoolingChoice: String,
     val coughingChoice: String,

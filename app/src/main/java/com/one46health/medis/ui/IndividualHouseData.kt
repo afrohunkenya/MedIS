@@ -1,11 +1,18 @@
 package com.one46health.medis.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.one46health.medis.R
+import com.one46health.medis.ui.household.HouseHoldActivity
+import kotlinx.android.synthetic.main.activity_individual_house_data.*
+import kotlinx.android.synthetic.main.house_hold_bar.*
 
 
 class IndividualHouseData : AppCompatActivity() {
@@ -19,6 +26,8 @@ class IndividualHouseData : AppCompatActivity() {
     private var mTreatedWater: TextView? = null
     private var mHandwashing: TextView? = null
     private var mRootRef: DatabaseReference? = null
+    lateinit var recyclerView: RecyclerView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,29 +39,49 @@ class IndividualHouseData : AppCompatActivity() {
         mFuctionalLatrines = findViewById(R.id.tv_functional_latrines);
         mRefuseDisposal = findViewById(R.id.tv_refuse_disposal);
         mTreatedWater = findViewById(R.id.tv_treated_water);
-        mHandwashing = findViewById(R.id.tv_hand_washing);
+        mHandwashing = findViewById(R.id.tv_hand_washing)
 
-        mRootRef = FirebaseDatabase.getInstance().reference
-            .child("MedIS").child("household data").child("household_number")
-            .child("Individual_code")
+        recyclerView = findViewById(R.id.individual_data_recycler)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        add_member!!.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this@IndividualHouseData, AddIndividualActivity::class.java))
+            finish()
+        })
+
+
+        mRootRef = FirebaseDatabase.getInstance().reference.child("MedIS")
+            .child("household data").child("12536212")
+            .child("002");
 
 
         mRootRef!!.addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val householdNumber = dataSnapshot.getValue(String::class.java)
-                val houseHeadName = dataSnapshot.getValue(String::class.java)
-                val value = dataSnapshot.getValue(String::class.java)
-                val waterAccess = dataSnapshot.getValue(String::class.java)
-                val fuctionalLatrines = dataSnapshot.getValue(String::class.java)
-                val treatedWater = dataSnapshot.getValue(String::class.java)
-                val handwashingFacility = dataSnapshot.getValue(String::class.java)
-                val disposalFacility = dataSnapshot.getValue(String::class.java)
+
+                val householdNumber = dataSnapshot.child("householdNumber").getValue(String::class.java)
+                val houseHeadName = dataSnapshot.child("houseHeadName").getValue(String::class.java)
+                val waterAccess = dataSnapshot.child("waterAccess").getValue(String::class.java)
+                val fuctionalLatrines = dataSnapshot.child("fuctionalLatrines").getValue(String::class.java)
+                val treatedWater = dataSnapshot.child("treatedWater").getValue(String::class.java)
+                val handwashingFacility = dataSnapshot.child("handwashingFacility").getValue(String::class.java)
+                val disposalFacility = dataSnapshot.child("disposalFacility").getValue(String::class.java)
+                val name = dataSnapshot.child("Name").getValue(String::class.java)
+
+
+
+//                val map = dataSnapshot.value as Map<*, *>?
+
+////                val householdNumber = dataSnapshot.value
+//                val houseHeadName = dataSnapshot.value
+                val value = dataSnapshot.value
+
 
 
                 mHouseholdNo!!.text = householdNumber
                 mHhhName!!.text = houseHeadName
-                mMembersNo!!.text = value
+//                mMembersNo!!.text = value as CharSequence?
                 mWateraccess!!.text = waterAccess
                 mFuctionalLatrines!!.text = fuctionalLatrines
                 mTreatedWater!!.text = treatedWater
@@ -65,6 +94,7 @@ class IndividualHouseData : AppCompatActivity() {
                     .show()
             }
         })
+
 
         
     }

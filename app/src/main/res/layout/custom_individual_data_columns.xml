@@ -13,7 +13,7 @@
         android:padding="10dp"
         android:text="Name"
         android:textColor="#4a4cd9"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
@@ -25,33 +25,33 @@
         android:padding="10dp"
         android:text="Relation"
         android:textColor="#4a4cd9"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/individual_status_column"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="15dp"
         android:layout_toEndOf="@+id/relation_column"
         android:padding="10dp"
         android:text="Status"
         android:textColor="#4a4cd9"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/remove"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/individual_status_column"
         android:padding="10dp"
         android:text="Remove"
         android:textColor="#4a4cd9"
         android:clickable="true"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:focusable="true" />
 

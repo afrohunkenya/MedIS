@@ -18,6 +18,9 @@
     <string name="reports">Reports</string>
     <string name="e_learning">E-Learning</string>
     <string name="events">Events</string>
+    <string name="event_one">
+        <a href ="https://www.eventbrite.ca/e/virtual-addiction-mental-health-workshop-series-tickets-114208789564?aff=ebdssbonlinesearch">Thursday September 10th - noon - 1:00 p.m. Current and Novel Approaches to Opioid Use Disorders: A medical module for physicians and non-physicians</a>
+    </string>
     <string-array name="chronic_illness">
         <item>Diabetes</item>
         <item>Cancer</item>
