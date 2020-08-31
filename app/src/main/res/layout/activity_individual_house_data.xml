@@ -184,6 +184,7 @@
         android:text="Members" />
 
         <TextView
+            android:id="@+id/add_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"

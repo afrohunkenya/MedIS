@@ -1,6 +1,8 @@
 package com.one46health.medis.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.one46health.medis.R
+import com.one46health.medis.ui.household.HouseHoldActivity
+import kotlinx.android.synthetic.main.activity_individual_house_data.*
+import kotlinx.android.synthetic.main.house_hold_bar.*
 
 
 class IndividualHouseData : AppCompatActivity() {
@@ -39,6 +44,11 @@ class IndividualHouseData : AppCompatActivity() {
         recyclerView = findViewById(R.id.individual_data_recycler)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        add_member!!.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this@IndividualHouseData, AddIndividualActivity::class.java))
+            finish()
+        })
 
 
         mRootRef = FirebaseDatabase.getInstance().reference.child("MedIS")

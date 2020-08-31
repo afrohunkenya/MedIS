@@ -10,22 +10,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".ui.ELearningActivity"
-            android:theme="@style/AppTheme" >
+        <activity android:name=".ui.Moh513Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
-        <activity android:name=".ui.ReportsActivity"
-            android:theme="@style/AppTheme" >
+        <activity android:name=".ui.Moh14Activity"
+            android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
-        <activity android:name=".ui.EventsActivity"
-            android:theme="@style/AppTheme" >
-
-        </activity>
-        <activity android:name=".ui.ReferralActivity"
-            android:theme="@style/AppTheme" >
-
-        </activity>
+        <activity android:name=".ui.AddIndividualActivity" />
+        <activity
+            android:name=".ui.ELearningActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.ReportsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.EventsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.ReferralActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.IndividualHouseData"
             android:theme="@style/AppTheme.NoActionBar" />
