@@ -5,11 +5,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.one46health.medis.R
+
 import com.one46health.medis.ui.household.HouseHoldActivity
 import com.one46health.medis.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_app_bar.*
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,3 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+    }
+
+}
+
