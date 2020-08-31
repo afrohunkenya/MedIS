@@ -139,6 +139,51 @@
                     android:text="females" />
             </RadioGroup>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relationship to HHH" />
+            <RadioGroup
+                android:id="@+id/rg_relationship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="relationShip"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_hhh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="HHH" />
+
+                <RadioButton
+                    android:id="@+id/rb_partner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="partner" />
+
+                <RadioButton
+                    android:id="@+id/rb_son"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="son" />
+                <RadioButton
+                    android:id="@+id/rb_daughter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daughter" />
+                <RadioButton
+                    android:id="@+id/rb_gardian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gardian" />
+            </RadioGroup>
+
+
+
             <RadioGroup
                 android:id="@+id/rg_orphanage"
                 android:layout_width="wrap_content"
@@ -291,6 +336,40 @@
                     android:layout_height="wrap_content"
                     android:text="Negative" />
             </RadioGroup>
+
+
+            <RadioGroup
+                android:id="@+id/rg_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status" />
+
+                <RadioButton
+                    android:id="@+id/rb_follow_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Follow up" />
+
+                <RadioButton
+                    android:id="@+id/rb_closed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Closed" />
+
+                <RadioButton
+                    android:id="@+id/rb_refer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Refer" />
+            </RadioGroup>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -2,31 +2,29 @@ package com.one46health.medis.model
 
 //1
 public class DataHolder {
-    //2
-    public var houseHeadName: String? = null
-    public var householdNumber: String? = null
-    public var dateofData: String? = null
+    var houseHeadName: String? = null
+    var status: String? = null
+    var dateofData: String? = null
 
 
     public fun DataHolder() {
 
     }
 
-
-    public fun DataHolder(houseHeadName: String, dateofData: String, householdNumber: String?) {
+    public fun DataHolder(houseHeadName: String, dateofData: String, status: String?) {
         this.houseHeadName = houseHeadName
-        this.householdNumber = householdNumber
+        this.status = status
         this.dateofData = dateofData
     }
-
 
     fun getHouseheadName(): String? {
         return houseHeadName
     }
 
-    public fun getHouseHoldNumber(): String? {
-        return householdNumber
+    fun getstatus(): String? {
+        return status
     }
+
     fun getDateData(): String? {
         return dateofData
     }
@@ -36,8 +34,8 @@ public class DataHolder {
         this.houseHeadName = houseHeadName
     }
 
-    fun setHouseholdNumber() {
-        this.householdNumber = householdNumber
+    fun setStatus() {
+        this.status = status
     }
 
     fun setDateofData() {

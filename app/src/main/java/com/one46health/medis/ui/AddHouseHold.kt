@@ -25,6 +25,11 @@ class AddHouseHold : AppCompatActivity() {
     private var btnSubmit: Button? = null
     private var selectedChronicIllness: String? = null
 
+    private var status: String? = null
+    private var relationship: String? = null
+
+
+
     lateinit var rgGender: RadioGroup
     lateinit var rbMale: RadioButton
     lateinit var rbFemale: RadioButton
@@ -130,6 +135,30 @@ class AddHouseHold : AppCompatActivity() {
                     selectedGender = "female"
                 }
             }
+
+            if (rg_relationship.checkedRadioButtonId != -1) {
+                if (rb_hhh.isChecked) {
+                    relationship = "HHH"
+                } else if (rb_partner.isChecked) {
+                    relationship = "Partner"
+                } else if (rb_son.isChecked) {
+                    relationship = "Son"
+                }else if (rb_daughter.isChecked) {
+                    relationship = "Daughter"
+                }else if (rb_gardian.isChecked) {
+                    relationship = "Gardian"
+                }
+            }
+
+            if (rg_status.checkedRadioButtonId != -1) {
+                if (rb_refer.isChecked) {
+                    status = "Referral"
+                } else if (rb_closed.isChecked) {
+                    status = "Closed"
+                }else if (rb_follow_up.isChecked) {
+                    status = "Follow up"
+                }
+            }
             if (rg_orphanage.checkedRadioButtonId != -1) {
                 if (rb_orphan_yes.isChecked) {
                     orphanChoice = "yes"
@@ -223,6 +252,8 @@ class AddHouseHold : AppCompatActivity() {
             val handwashing_facility = handwashingFacility!!.toString().trim()
             val disposal_facility = disposalFacility!!.toString().trim()
             val currentUser = mCurrentUser!!.toString().trim()
+            val status_select = status!!.toString().trim()
+            val mRelationship = relationship!!.toString().trim()
 
 //            pushPatientData()
 
@@ -254,6 +285,8 @@ class AddHouseHold : AppCompatActivity() {
             mhouseMap["handwashingFacility"] = handwashing_facility
             mhouseMap["disposalFacility"] = disposal_facility
             mhouseMap["chv ID"] = currentUser
+            mhouseMap["status"] = status_select
+            mhouseMap["relationship"] = mRelationship
 
 
             mRef.updateChildren(mhouseMap).addOnCompleteListener {
@@ -412,10 +445,7 @@ class AddHouseHold : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show();
             };
-
-
         })
-
     }
 
     override fun onResume() {
