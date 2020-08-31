@@ -18,16 +18,26 @@
             android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
-        <activity android:name=".ui.AddIndividualActivity" />
+        <activity android:name=".ui.AddIndividualActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.ELearningActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.ReportsActivity"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.EventsActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="http" android:host="www.example.com" />
+            <data android:scheme="https" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.ReferralActivity"
             android:theme="@style/AppTheme" />
@@ -54,7 +64,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
