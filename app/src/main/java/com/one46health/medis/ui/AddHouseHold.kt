@@ -99,7 +99,7 @@ class AddHouseHold : AppCompatActivity() {
         btnSubmit = findViewById(R.id.btn_submit)
         btnMoh513 = findViewById(R.id.btn_moh513)
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance()
         if (mAuth!!.currentUser != null) {
             mCurrentUser = FirebaseDatabase.getInstance()
                 .reference.child("MedIS").child("users")
@@ -114,13 +114,13 @@ class AddHouseHold : AppCompatActivity() {
         })
 
 
-        btnMoh513!!.setOnClickListener(View.OnClickListener() {
+        btnMoh513!!.setOnClickListener(View.OnClickListener {
 
-            counter++;
+            counter++
             if (counter % 2 == 0) {
-                moh513_ll.visibility == View.VISIBLE;//show
+                moh513_ll.visibility == View.VISIBLE//show
             } else {
-                moh513_ll.visibility == View.GONE;//hide
+                moh513_ll.visibility == View.GONE//hide
             }
         })
 
@@ -230,8 +230,8 @@ class AddHouseHold : AppCompatActivity() {
                 }
             }
 
-            selectedChronicIllness = sp_chronic_illnes.selectedItem.toString();
-            disability = sp_disability.selectedItem.toString();
+            selectedChronicIllness = sp_chronic_illnes.selectedItem.toString()
+            disability = sp_disability.selectedItem.toString()
             val village_name = villageName!!.text.toString().trim()
             val household_number = householdNumber!!.text.toString().trim()
             val dataDate = dateofData!!.text.toString().trim()
@@ -255,52 +255,58 @@ class AddHouseHold : AppCompatActivity() {
             val status_select = status!!.toString().trim()
             val mRelationship = relationship!!.toString().trim()
 
+
+
+            if (household_number.isEmpty() || Individual_code.isEmpty()){
+                Toast.makeText(this, "Enter your email Address!!", Toast.LENGTH_LONG).show()
+            }else {
 //            pushPatientData()
 
-            val mRef = FirebaseDatabase.getInstance().getReference()
-                .child("MedIS").child("household data").child(household_number)
-                .child(Individual_code);
+                val mRef = FirebaseDatabase.getInstance().reference
+                    .child("MedIS").child("household data").child(household_number)
+                    .child(Individual_code)
 //        val householdId=mRef.push().key
 
-            //Writing Hashmap
-            val mhouseMap: MutableMap<String, Any> = HashMap()
+                //Writing Hashmap
+                val mhouseMap: MutableMap<String, Any> = HashMap()
 
-            mhouseMap["villageName"] = village_name
-            mhouseMap["householdNumber"] = household_number
-            mhouseMap["dateofData"] = dataDate
-            mhouseMap["IndividualCode"] = Individual_code
-            mhouseMap["houseHeadName"] = house_headName
-            mhouseMap["houseHeadAge"] = house_headAge
-            mhouseMap["selectedGender"] = selected_gender
-            mhouseMap["orphanChoice"] = orphan_choice
-            mhouseMap["individualName"] = individual_name
-            mhouseMap["birthCertChoice"] = birth_certChoice
-            mhouseMap["schoolingChoice"] = schooling_choice
-            mhouseMap["coughing_choice"] = coughing_choice
-            mhouseMap["otherDisability"] = other_disability
-            mhouseMap["hIVstatus"] = hIV_status
-            mhouseMap["waterAccess"] = water_access
-            mhouseMap["treatedWater"] = treated_water
-            mhouseMap["fuctionalLatrines"] = fuctional_latrines
-            mhouseMap["handwashingFacility"] = handwashing_facility
-            mhouseMap["disposalFacility"] = disposal_facility
-            mhouseMap["chv ID"] = currentUser
-            mhouseMap["status"] = status_select
-            mhouseMap["relationship"] = mRelationship
+                mhouseMap["villageName"] = village_name
+                mhouseMap["householdNumber"] = household_number
+                mhouseMap["dateofData"] = dataDate
+                mhouseMap["IndividualCode"] = Individual_code
+                mhouseMap["houseHeadName"] = house_headName
+                mhouseMap["houseHeadAge"] = house_headAge
+                mhouseMap["selectedGender"] = selected_gender
+                mhouseMap["orphanChoice"] = orphan_choice
+                mhouseMap["individualName"] = individual_name
+                mhouseMap["birthCertChoice"] = birth_certChoice
+                mhouseMap["schoolingChoice"] = schooling_choice
+                mhouseMap["coughing_choice"] = coughing_choice
+                mhouseMap["otherDisability"] = other_disability
+                mhouseMap["hIVstatus"] = hIV_status
+                mhouseMap["waterAccess"] = water_access
+                mhouseMap["treatedWater"] = treated_water
+                mhouseMap["fuctionalLatrines"] = fuctional_latrines
+                mhouseMap["handwashingFacility"] = handwashing_facility
+                mhouseMap["disposalFacility"] = disposal_facility
+                mhouseMap["chv ID"] = currentUser
+                mhouseMap["status"] = status_select
+                mhouseMap["relationship"] = mRelationship
 
 
-            mRef.updateChildren(mhouseMap).addOnCompleteListener {
-                Toast.makeText(
-                    applicationContext,
-                    "user data saved successfully",
-                    Toast.LENGTH_SHORT
-                ).show();
-            };
+                mRef.updateChildren(mhouseMap).addOnCompleteListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "user data saved successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
-            val mHouseRef = FirebaseDatabase.getInstance().reference
-                .child("MedIS").child("moh513").child(household_number).child(Individual_code);
 
-            if (rg_pregnant.checkedRadioButtonId != -1) {
+                val mHouseRef = FirebaseDatabase.getInstance().reference
+                .child("MedIS").child("moh513").child(household_number).child(Individual_code)
+
+                if (rg_pregnant.checkedRadioButtonId != -1) {
                 if (rb_pregnant_yes.isChecked) {
                     pregnant = "yes"
                 } else if (rb_pregnant_no.isChecked) {
@@ -399,8 +405,8 @@ class AddHouseHold : AppCompatActivity() {
                 }
             }
 
-            fpMethods = sp_fp_methods.selectedItem.toString();
-            val mpregnant = pregnant!!.toString().trim()
+            fpMethods = sp_fp_methods.selectedItem.toString()
+                val mpregnant = pregnant!!.toString().trim()
             val mhealthBook = healthBook!!.toString().trim()
             val mAnc4Times = anc4Times!!.toString().trim()
             val mBirthAttendant = birthAttendant!!.toString().trim()
@@ -416,39 +422,40 @@ class AddHouseHold : AppCompatActivity() {
             val mllinUse = llinUse!!.toString().trim()
             val fp_methods = fpMethods!!.toString().trim()
 
-            val moh513Map: MutableMap<String, Any> = HashMap()
-            moh513Map["pregnant"] = mpregnant
-            moh513Map["healthBook"] = mhealthBook
-            moh513Map["anc4Times"] = mAnc4Times
-            moh513Map["birthAttendant"] = mBirthAttendant
-            moh513Map["breastFeeding"] = mBreastFeeding
-            moh513Map["penta1"] = mpenta1
-            moh513Map["penta2"] = mpenta2
-            moh513Map["measlesImmune"] = mMeaslesImmune
-            moh513Map["immunisedFully"] = mImmunisedFully
-            moh513Map["vitaminA"] = mvitaminA
-            moh513Map["balancedDiet"] = mbalancedDiet
-            moh513Map["severelyMalnourished"] = mseverelyMalnourished
-            moh513Map["moderateMalnoushed"] = mmoderateMalnoushed
-            moh513Map["llinUse"] = mllinUse
-            moh513Map["chv ID"] = currentUser
-            moh513Map["householdNumber"] = household_number
-            moh513Map["IndividualCode"] = Individual_code
-            moh513Map["houseHeadName"] = house_headName
-            moh513Map["individualName"] = individual_name
 
 
-            mHouseRef.updateChildren(moh513Map).addOnCompleteListener {
-                Toast.makeText(
-                    applicationContext,
-                    "user data saved successfully",
-                    Toast.LENGTH_LONG
-                ).show();
-            };
+                val moh513Map: MutableMap<String, Any> = HashMap()
+                moh513Map["pregnant"] = mpregnant
+                moh513Map["healthBook"] = mhealthBook
+                moh513Map["anc4Times"] = mAnc4Times
+                moh513Map["birthAttendant"] = mBirthAttendant
+                moh513Map["breastFeeding"] = mBreastFeeding
+                moh513Map["penta1"] = mpenta1
+                moh513Map["penta2"] = mpenta2
+                moh513Map["measlesImmune"] = mMeaslesImmune
+                moh513Map["immunisedFully"] = mImmunisedFully
+                moh513Map["vitaminA"] = mvitaminA
+                moh513Map["balancedDiet"] = mbalancedDiet
+                moh513Map["severelyMalnourished"] = mseverelyMalnourished
+                moh513Map["moderateMalnoushed"] = mmoderateMalnoushed
+                moh513Map["llinUse"] = mllinUse
+                moh513Map["chv ID"] = currentUser
+                moh513Map["householdNumber"] = household_number
+                moh513Map["IndividualCode"] = Individual_code
+                moh513Map["houseHeadName"] = house_headName
+                moh513Map["individualName"] = individual_name
+
+
+                mHouseRef.updateChildren(moh513Map).addOnCompleteListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "user data saved successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
         })
+
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }

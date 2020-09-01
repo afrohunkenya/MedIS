@@ -2,7 +2,7 @@ package com.one46health.medis.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -31,17 +31,17 @@ class RegisterActivity : AppCompatActivity() {
             val password = ETPassword.text.toString().trim()
 
             if (username.isEmpty() || userEmail.isEmpty()|| location.isEmpty() || number.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Enter your email Address!!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Enter your All Data!!", Toast.LENGTH_LONG).show()
             }
             if (password.length < 6) {
                 Toast.makeText(this, "Password too short, enter minimum 6 characters", Toast.LENGTH_LONG).show()
             }
-            val mRef = FirebaseDatabase.getInstance().reference.child("MedIS").child("users");
+            val mRef = FirebaseDatabase.getInstance().reference.child("MedIS").child("users")
             val userId = mRef.push().key
             val user = Users(userId, username, userEmail, location, number)
             if (userId != null) {
                 mRef.child(userId).setValue(user).addOnCompleteListener {
-                    Toast.makeText(this, "user data saved successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "user data saved successfully", Toast.LENGTH_SHORT).show()
 
                 }
             }

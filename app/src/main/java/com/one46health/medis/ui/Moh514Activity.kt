@@ -115,32 +115,36 @@ class Moh514Activity : AppCompatActivity() {
             val moderateMulnutrition = mModerateMalnutrition.toString().trim()
             val dewormed = mDewormed!!.toString().trim()
 
-            val mRef =FirebaseDatabase.getInstance().reference
-                .child("MedIS").child("moh514").child(mhousehold_number).child(mIndividual_code)
+            if (mhousehold_number.isEmpty() || mIndividual_code.isEmpty()){
+                Toast.makeText(this, "Enter your email Address!!", Toast.LENGTH_LONG).show()
+            }else {
+
+                val mRef = FirebaseDatabase.getInstance().reference
+                    .child("MedIS").child("moh514").child(mhousehold_number).child(mIndividual_code)
 
 
-            val mMoh514: MutableMap<String, Any> = HashMap()
+                val mMoh514: MutableMap<String, Any> = HashMap()
 
-            mMoh514["householdNumber"] = mhousehold_number
-            mMoh514["IndividualCode"] = mIndividual_code
-            mMoh514["counselled"] = counselled
-            mMoh514["skilledAttendant"] = skilledAttendant
-            mMoh514["quickReturnAfterDelivery"] = quickReturnAfterDelivery
-            mMoh514["breastFeedingCounselled"] = breastFeedingCounselled
-            mMoh514["fpCommodities"] = fpCommodities
-            mMoh514["growthMonitoring"] = growthMonitoring
-            mMoh514["severeMulnutrition"] = severeMulnutrition
-            mMoh514["moderateMulnutrition"] = moderateMulnutrition
-            mMoh514["child_dewormed"] = dewormed
+                mMoh514["householdNumber"] = mhousehold_number
+                mMoh514["IndividualCode"] = mIndividual_code
+                mMoh514["counselled"] = counselled
+                mMoh514["skilledAttendant"] = skilledAttendant
+                mMoh514["quickReturnAfterDelivery"] = quickReturnAfterDelivery
+                mMoh514["breastFeedingCounselled"] = breastFeedingCounselled
+                mMoh514["fpCommodities"] = fpCommodities
+                mMoh514["growthMonitoring"] = growthMonitoring
+                mMoh514["severeMulnutrition"] = severeMulnutrition
+                mMoh514["moderateMulnutrition"] = moderateMulnutrition
+                mMoh514["child_dewormed"] = dewormed
 
-            mRef.updateChildren(mMoh514).addOnCompleteListener {
-                Toast.makeText(
-                    applicationContext,
-                    "user data saved successfully",
-                    Toast.LENGTH_SHORT
-                ).show()
+                mRef.updateChildren(mMoh514).addOnCompleteListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "user data saved successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
         })
 
     }

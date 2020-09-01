@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.one46health.medis.R
+import com.one46health.medis.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -14,7 +15,8 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, Moh514Activity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
+
 
             finish()
         }, 1500)
